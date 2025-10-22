@@ -18,6 +18,16 @@ const Navbar = () => {
                 <div className='md:hidden flex border border-gray-600 px-3 py-3 rounded'>
                     <img src={assets.menu_icon} className='w-5 cursor-pointer' alt="" />
                 </div>
+
+                {/* Menu for mobile screen */}
+                <div className='fixed top-0 left-0 w-full px-12 py-8 bg-gray-800/90'>
+                    <ul className='flex flex-col gap-7'>
+                        <a className='text-white/90 text-[17px] hover:text-sky-400' href="#header">Home</a>
+                        <a className='text-white/90 text-[17px] hover:text-sky-400' href="#about">About</a>
+                        <a className='text-white/90 text-[17px] hover:text-sky-400' href="#projects">Projects</a>
+                        <a className='text-white/90 text-[17px] hover:text-sky-400' href="#testimonials">Testimonials</a>
+                    </ul>
+                </div>
             </div>
         </div>
     )
