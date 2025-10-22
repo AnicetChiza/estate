@@ -3,8 +3,8 @@ import { assets } from '../assets/assets'
 
 const About = () => {
     return (
-        <div id='about' className='container mx-auto flex flex-col items-center justify-center py-6 px-4 sm:px-12 lg:px-24 xl:px-40'>
-            <h1 className='text-[25px] sm:text-[30px] md:text-[40px] font-bold'>About <span className='bg-gradient-to-r from-[#38BDF8] to-[#fcd3a4] bg-clip-text text-transparent'>Our Brand</span></h1>
+        <div id='about' className='container mx-auto flex flex-col items-center justify-center py-15 px-4 sm:px-12 lg:px-24 xl:px-40'>
+            <h1 className='text-[25px] text-gray-700 sm:text-[30px] md:text-[40px] font-bold'>About <span className='bg-gradient-to-r from-[#38BDF8] to-[#fcd3a4] bg-clip-text text-transparent'>Our Brand</span></h1>
             <p className='mt-4 max-w-80 text-center text-gray-400'>Passionate About Properties, Dedicated to Your Vision</p>
             
             <div className='flex flex-col items-center md:flex-row md:items-start gap-8 md:gap-20 mt-10 text-gray-600'>

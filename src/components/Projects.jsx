@@ -1,10 +1,41 @@
 import React from 'react'
+import { assets, projectsData } from '../assets/assets'
 
 const Projects = () => {
     return (
-        <div id='projects' className='container flex flex-col items-center  py-6 px-4 sm:px-12 lg:px-24 xl:px-40'>
-            <h2 className='text-[25px] sm:text-[30px] md:text-[40px] font-bold'>Projects <span className='bg-gradient-to-r from-[#38BDF8] to-[#fcd3a4] bg-clip-text text-transparent'>Completed</span></h2>
-            <p className='text-gray-400 max-w-80'>Crafting Space, Building legacies-Explore Our Portfolio.</p>
+        <div id='projects' className='container overflow-hidden py-15 px-4 sm:px-12 lg:px-24 xl:px-40'>
+            <div className='flex flex-col items-center'>
+                <h2 className='text-[25px] text-gray-700 sm:text-[30px] md:text-[40px] font-bold'>Projects <span className='bg-gradient-to-r from-[#38BDF8] to-[#fcd3a4] bg-clip-text text-transparent'>Completed</span></h2>
+                <p className='text-gray-400 max-w-80 text-center mt-5'>Crafting Space, Building legacies-Explore Our Portfolio.</p>
+            </div>
+
+                {/* slider buttons */}
+                <div className='flex items-center justify-end gap-2 mt-10'>
+                    <button className='bg-gray-200 px-4 py-3 rounded'>
+                        <img src={assets.left_arrow} alt="" aria-label='previous project' />
+                    </button>
+                    <button className='bg-gray-200 px-4 py-3 rounded'>
+                        <img src={assets.right_arrow} alt="" aria-label='previous project' />
+                    </button>
+                </div>
+
+                {/* Project slider container */}
+                <div className='overflow-hidden mt-10'>
+                    <div className='flex gap-4 transition-all duration-500 ease-in-out'>
+                        {projectsData.map((project, index) => (
+                            <div key={index} className='relative flex-shrink-0 w-full sm:1/4'>
+                                <img className='rounded' src={project.image} alt={project.title} />
+                                <div className='absolute left-0 right-0 bottom-5 flex justify-center'>
+                                    <div className='inline-block w-3/4 px-4 py-2 shadow-stone-200 bg-white'>
+                                        <h3 className='font-semibold'>{project.title}</h3>
+                                        <p className='text-gray-400'>{project.price} <span>||</span> {project.location}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+        
         </div>
     )
 }
