@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import {assets} from '../assets/assets';
 
 const Navbar = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect (() =>{
+        if(menuOpen){
+            document.body.style.overflow = 'hidden';
+        } else{
+            document.body.style.overflow = 'auto';
+        }
+        return ()=>{
+            document.body.style.overflow = 'auto';
+        }
+    }, [menuOpen]);
 
     return (
         <div className='absolute top-0 w-full z-9'>
@@ -30,10 +41,10 @@ const Navbar = () => {
                         <img src={assets.cross_icon} className='w-4 invert brightness-100' alt="" />
                     </div>
                     <ul className='flex flex-col gap-7'>
-                        <a className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#header">Home</a>
-                        <a className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#about">About</a>
-                        <a className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#projects">Projects</a>
-                        <a className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#testimonials">Testimonials</a>
+                        <a onClick={() => setMenuOpen(false)} className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#header">Home</a>
+                        <a onClick={() => setMenuOpen(false)} className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#about">About</a>
+                        <a onClick={() => setMenuOpen(false)} className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#projects">Projects</a>
+                        <a onClick={() => setMenuOpen(false)} className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#testimonials">Testimonials</a>
                     </ul>
                 </div>
         </div>
