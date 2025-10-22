@@ -20,12 +20,15 @@ const Navbar = () => {
                 </div>
 
                 {/* Menu for mobile screen */}
-                <div className='fixed top-0 left-0 w-full px-12 py-8 bg-gray-800/90'>
+                <div className='fixed top-0 left-0 bottom-0 right-0 w-full px-12 py-6 bg-gray-800/90 transition-all duration-300'>
+                    <div className='flex justify-end cursor-pointer border border-gray-600 px-3 py-3 rounded w-fit ml-auto'>
+                        <img src={assets.cross_icon} className='w-4 invert brightness-100' alt="" />
+                    </div>
                     <ul className='flex flex-col gap-7'>
-                        <a className='text-white/90 text-[17px] hover:text-sky-400' href="#header">Home</a>
-                        <a className='text-white/90 text-[17px] hover:text-sky-400' href="#about">About</a>
-                        <a className='text-white/90 text-[17px] hover:text-sky-400' href="#projects">Projects</a>
-                        <a className='text-white/90 text-[17px] hover:text-sky-400' href="#testimonials">Testimonials</a>
+                        <a className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#header">Home</a>
+                        <a className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#about">About</a>
+                        <a className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#projects">Projects</a>
+                        <a className='text-white/90 text-[17px] w-fit hover:text-sky-400' href="#testimonials">Testimonials</a>
                     </ul>
                 </div>
             </div>
