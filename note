@@ -1,4 +1,4 @@
 for creating and install a react project i did ------ npm create vite@latest . -- --template react and then follow all the steps to install the npm packages.
+
 Actually there is a new way to install the tailwindcss first of all and then we have to type in the terminal ----npm install tailwindcss @tailwindcss/vite---- after that we have to go in the vite.config.js and import the tailwindcss and insert it aside the react plugin ----import tailwindcss from '@tailwindcss/vite'---- and this will be written aside the react plugin tailwindcss(), and the last thing is to import tailwindcss in our css file ----@import "tailwindcss";---- that is all
 
-I'have to add the outfit Font from google font
