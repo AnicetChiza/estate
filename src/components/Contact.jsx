@@ -1,6 +1,33 @@
 import React from 'react'
+import toast from 'react-hot-toast';
 
 const Contact = () => {
+
+    const onSubmit = async(event) =>{
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        formData.append("access_key", "70609c73-6ec6-4094-854b-0776d40ab9a9");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                toast.success("Message sent successfully !")
+                event.target.reset();
+            } else {
+                toast.error(data.message);
+            }
+        } catch (error) {
+            toast.error(error.message);
+        }
+    }
+
     return (
         <div className='py-15 px-4 sm:px-12 lg:px-24 xl:px-40'>
             <div className='flex flex-col items-center justify-center'>
@@ -8,8 +35,8 @@ const Contact = () => {
                 <p className='mt-4 max-w-80 text-center text-gray-400'>Ready to make a move? Let's build your future together.</p>
             </div>
         
-            <form className='max-w-3xl mx-auto'>
-                <div className='flex gap-4 mt-10'>
+            <form onSubmit={onSubmit} className='max-w-3xl mx-auto'>
+                <div className='flex flex-col md:flex-row gap-4 mt-10'>
                     <div className='w-full flex flex-col gap-2 md:w-1/2 text-left'>
                         Your Name
                         <input className='w-full border border-gray-300 py-3 px-5 rounded outline-none' type="text" name='name' placeholder='Enter your name' required/>
@@ -24,7 +51,7 @@ const Contact = () => {
                     <textarea className='w-full border border-gray-300 py-3 px-5 rounded outline-none resize-none h-40' name="message" placeholder='Write your message here...' required></textarea>
                 </div>
 
-                <button className='bg-sky-400 text-white px-8 py-2 rounded mx-auto mt-5'>Send Message</button>
+                <button type='submit' className='bg-sky-400 text-white px-8 py-2 rounded mx-auto mt-5'>Send Message</button>
             </form>
         </div>
     )
